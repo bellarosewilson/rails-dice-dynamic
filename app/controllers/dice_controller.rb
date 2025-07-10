@@ -1,6 +1,6 @@
 class DiceController < ApplicationController
   def index
-    render :index
+        render({ :template => "roll_templates/home" })
   end
 
   def roll
