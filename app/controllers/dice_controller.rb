@@ -1,13 +1,19 @@
-class DiceController < ApplicationController
-  def index
-        render({ :template => "roll_templates/home" })
+# app/controllers/pages_controller.rb
+class PagesController < ApplicationController
+  def home
+    render({ template: 'page_templates/index' })
   end
 
   def roll
-    @number = params[:number].to_i
-    @sides = params[:sides].to_i
-    @rolls = Array.new(@number) { rand(1..@sides) }
+    dice = params.fetch('num_of_dice')
+    sides = params.fetch('num_of_sides')
 
-    render :roll
+    @dice = dice.to_i
+    @sides = sides.to_i
+    @rolls = []
+
+    @dice.times { @rolls.push(roll = rand(1..@sides)) }
+
+    render({ template: 'page_templates/roll' })
   end
 end
