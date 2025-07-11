@@ -1,6 +1,7 @@
-<h1><%= "#{@dice}d#{@sides}" %></h1>
+<h1><%= "#{@number}d#{@sides}" %></h1>
+
 <ul>
-  <% @rolls.each do |a_roll| %>
-    <li><%= a_roll %></li>
+  <% @rolls.each do |roll| %>
+    <li><%= roll %></li>
   <% end %>
 </ul>
